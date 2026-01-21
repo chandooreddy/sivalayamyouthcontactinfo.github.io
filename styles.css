@@ -1,3 +1,26 @@
 h1 {
   text-decoration: underline;
 }
+  /* ----- Search Bar ----- */
+      .search-container {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .search-container input {
+        width: 60%;
+        max-width: 500px;
+        padding: 12px 18px;
+        font-size: 16px;
+        border: 1px solid #555;
+        border-radius: 25px;
+        background-color: #2b2b2b;
+        color: #ffffff;
+        outline: none;
+        transition: all 0.3s;
+      }
+
+      .search-container input:focus {
+        border-color: #00ffcc;
+        box-shadow: 0 0 10px #00ffcc;
+      }
