@@ -181,6 +181,35 @@
   text-align: center;
 }
 
+.footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.footer-sub {
+  font-size: 13px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #00ffcc;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
 
       /* ----- Responsive ----- */
       @media (max-width: 600px) {
@@ -495,7 +524,22 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <footer>Sivalayam Youth - All rights reserved</footer>
+    <footer class="footer">
+  <p><strong>Sivalayam Youth</strong>- <strong> All rights reserved</strong></p>
+  <p class="footer-sub">
+    Empowering youth • Serving community • Building unity
+  </p>
+
+  <div class="footer-links">
+    <a href="https://www.instagram.com/thugs_of_jaladanki/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:thugsofjaladanki@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</footer>
+
 
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
       ↑
@@ -608,7 +652,7 @@ function sendMail() {
   );
 
   window.location.href =
-    `mailto:chandureddy6463@gmail.com?subject=${subject}&body=${body}`;
+    `mailto:thugsofjaladanki@gmail.com?subject=${subject}&body=${body}`;
 
   closeMailForm();
 }
