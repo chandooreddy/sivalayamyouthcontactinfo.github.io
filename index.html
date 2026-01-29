@@ -163,6 +163,25 @@
         background-color: #00ccaa;
       }
 
+      .modal {
+  display: none;               /* 👈 THIS IS THE FIX */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+}
+
+.modal-content {
+  background: #1f1f1f;
+  width: 90%;
+  max-width: 400px;
+  margin: 120px auto;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+
       /* ----- Responsive ----- */
       @media (max-width: 600px) {
         .search-container input {
@@ -464,6 +483,12 @@
       </div>
       <!-- Add more cards below if needed -->
     </div>
+
+    <div class="controls">
+  <button onclick="openMailForm()">📧 Add/Update User</button>
+</div>
+
+
     <!-- Add this in your HTML <head> -->
     <link
       rel="stylesheet"
@@ -541,5 +566,53 @@
 
       window.onload = updateTotalCount;
     </script>
+
+<!-- Send Mail Modal -->
+<div id="mailModal" class="modal">
+  <div class="modal-content">
+    <h2>Send Details</h2>
+
+    <input type="text" id="mailName" placeholder="Your Name" />
+    <input type="text" id="mailPhone" placeholder="Phone Number" />
+
+    <div style="margin-top:15px">
+      <button onclick="sendMail()">Send</button>
+      <button onclick="closeMailForm()" style="background:#555;color:#fff">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+function openMailForm() {
+  console.log("Send Details clicked"); // debug
+  document.getElementById("mailModal").style.display = "block";
+}
+
+function closeMailForm() {
+  document.getElementById("mailModal").style.display = "none";
+}
+
+function sendMail() {
+  const name = document.getElementById("mailName").value.trim();
+  const phone = document.getElementById("mailPhone").value.trim();
+
+  if (!name || !phone) {
+    alert("Please enter Name and Phone Number");
+    return;
+  }
+
+  const subject = encodeURIComponent("User Details");
+  const body = encodeURIComponent(
+    `User Details Submitted:\n\nName: ${name}\nPhone: ${phone}`
+  );
+
+  window.location.href =
+    `mailto:chandureddy6463@gmail.com?subject=${subject}&body=${body}`;
+
+  closeMailForm();
+}
+</script>
+
   </body>
 </html>
